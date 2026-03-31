@@ -206,3 +206,36 @@
     line-height: 1.35 !important;
   }
 }
+
+/* Event Notice */
+.bkit-event-notice {
+  margin: 1rem 0;
+}
+
+.bkit-event-notice .bkit-event-notice__inner {
+  padding: 14px 16px;
+  background: #f7f5f1;
+  border-left: 4px solid #d8d1c4;
+  border-radius: 10px;
+  color: #3d3a34;
+}
+
+.bkit-event-notice .bkit-event-notice__inner > :first-child {
+  margin-top: 0;
+}
+
+.bkit-event-notice .bkit-event-notice__inner > :last-child {
+  margin-bottom: 0;
+}
+
+.bkit-event-notice .bkit-event-notice__inner a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .bkit-event-notice .bkit-event-notice__inner {
+    padding: 12px 14px;
+    border-radius: 8px;
+  }
+}

@@ -14,9 +14,11 @@ define( 'BKIT_MVP_URL', plugin_dir_url( __FILE__ ) );
 require_once BKIT_MVP_PATH . 'includes/CPT/Reservation.php';
 require_once BKIT_MVP_PATH . 'includes/Admin/OpeningHours.php';
 require_once BKIT_MVP_PATH . 'includes/Admin/ClosedDays.php';
+require_once BKIT_MVP_PATH . 'includes/Admin/EventNotice.php';
 require_once BKIT_MVP_PATH . 'includes/Shortcodes/Calendar.php';
 require_once BKIT_MVP_PATH . 'includes/Shortcodes/OpeningHours.php';
 require_once BKIT_MVP_PATH . 'includes/Shortcodes/StatusToday.php';
+require_once BKIT_MVP_PATH . 'includes/Shortcodes/EventNotice.php';
 
 class CalendarKit_MVP {
 
@@ -31,6 +33,7 @@ class CalendarKit_MVP {
 
         add_action('admin_menu', ['BKIT_MVP_OpeningHours_Admin', 'register_menu']);
         add_action('admin_menu', ['BKIT_MVP_ClosedDays_Admin', 'register_menu']);
+        add_action('admin_menu', ['BKIT_MVP_EventNotice_Admin', 'register_menu']);
 
         add_action('add_meta_boxes', ['BKIT_MVP_ClosedDays_Admin', 'register_metabox']);
         add_action('save_post_bk_closed_day', ['BKIT_MVP_ClosedDays_Admin', 'save_metabox']);
@@ -44,6 +47,7 @@ class CalendarKit_MVP {
         add_shortcode('bk_calendar', ['BKIT_MVP_Shortcode_Calendar', 'render']);
         add_shortcode('bk_opening_hours', ['BKIT_MVP_Shortcode_OpeningHours', 'render']);
         add_shortcode('bk_status_today', ['BKIT_MVP_Shortcode_StatusToday', 'render']);
+        add_shortcode('bk_event_notice', ['BKIT_MVP_Shortcode_EventNotice', 'render']);
 
         add_action('wp_ajax_bkit_mvp_submit_res', [$this, 'ajax_submit_res']);
         add_action('wp_ajax_nopriv_bkit_mvp_submit_res', [$this, 'ajax_submit_res']);
@@ -109,6 +113,14 @@ class CalendarKit_MVP {
         // Hinweistext unter Öffnungszeiten nur beim echten Erstinstallationsfall anlegen
         if (false === get_option('bkit_mvp_opening_hours_note', false)) {
             add_option('bkit_mvp_opening_hours_note', '');
+        }
+
+        if (false === get_option('bkit_mvp_event_notice_enabled', false)) {
+            add_option('bkit_mvp_event_notice_enabled', '0');
+        }
+
+        if (false === get_option('bkit_mvp_event_notice_content', false)) {
+            add_option('bkit_mvp_event_notice_content', '');
         }
 
         flush_rewrite_rules();
