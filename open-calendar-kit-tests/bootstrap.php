@@ -493,11 +493,11 @@ function okit_test_reset_state(): void {
     okit_test_set_runtime_locale('en_US');
 }
 
-require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/I18n.php';
-require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Admin/Settings.php';
-require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/OpeningHours.php';
-require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/StatusToday.php';
-require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/Calendar.php';
-require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/EventNotice.php';
+require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/class-opencalendarkit-i18n.php';
+require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Admin/class-opencalendarkit-admin-settings.php';
+require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/class-opencalendarkit-shortcode-openinghours.php';
+require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/class-opencalendarkit-shortcode-statustoday.php';
+require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/class-opencalendarkit-shortcode-calendar.php';
+require_once '/Users/jvoigt/Projects/OpenCalendarKit/open-calendar-kit/includes/Shortcodes/class-opencalendarkit-shortcode-eventnotice.php';
 
 okit_test_reset_state();
