@@ -1,1 +1,4 @@
 /wordpress/
+.DS_Store
+/vendor/
+/opencalendarkit.zip
